@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>Text Engine Configuration</title>
+
+        <input-field type="url">
+            <name>endpointUrl</name>
+            <label>Endpoint URL</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>apiToken</name>
+            <label>API Token</label>
+        </input-field>
+
+        <input-field type="bool">
+            <name>refreshTexts</name>
+            <label>Refresh Texts</label>
+        </input-field>
+    </card>
+
+</config>
