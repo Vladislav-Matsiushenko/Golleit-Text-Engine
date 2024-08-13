@@ -20,6 +20,42 @@
             <name>refreshTexts</name>
             <label>Refresh Texts</label>
         </input-field>
+
+        <component name="sw-entity-multi-id-select">
+            <name>productProperties</name>
+            <entity>property_group</entity>
+            <label>Product Properties</label>
+        </component>
+
+        <component name="sw-entity-multi-id-select">
+            <name>customProductProperties</name>
+            <entity>custom_field</entity>
+            <label>Custom Product Properties</label>
+        </component>
+
+        <input-field type="multi-select">
+            <name>otherProductProperties</name>
+            <label>Other Product Properties</label>
+            <options>
+                <option>
+                    <id>1</id>
+                    <name>Name</name>
+                </option>
+                <option>
+                    <id>2</id>
+                    <name>Description</name>
+                </option>
+                <option>
+                    <id>3</id>
+                    <name>Price</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="textarea">
+            <name>dataMapping</name>
+            <label>Data mapping</label>
+        </input-field>
     </card>
 
 </config>

@@ -9,7 +9,7 @@ class ProductDescriptionUpdateMessage implements AsyncMessageInterface
 {
     public function __construct(
         private readonly Context $context,
-        private readonly string  $id,
+        private readonly string  $productId,
     ) {
     }
 
@@ -18,8 +18,8 @@ class ProductDescriptionUpdateMessage implements AsyncMessageInterface
         return $this->context;
     }
 
-    public function getId(): string
+    public function getProductId(): string
     {
-        return $this->id;
+        return $this->productId;
     }
 }

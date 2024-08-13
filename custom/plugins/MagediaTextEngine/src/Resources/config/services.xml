@@ -13,8 +13,10 @@
 
         <service id="Magedia\MessageQueue\Handler\ProductDescriptionUpdateHandler">
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
-            <argument type="service" id="Symfony\Contracts\HttpClient\HttpClientInterface"/>
             <argument type="service" id="product.repository"/>
+            <argument type="service" id="property_group.repository"/>
+            <argument type="service" id="property_group_option.repository"/>
+            <argument type="service" id="Symfony\Contracts\HttpClient\HttpClientInterface"/>
             <argument type="service" id="Psr\Log\LoggerInterface"/>
             <tag name="messenger.message_handler" />
         </service>
