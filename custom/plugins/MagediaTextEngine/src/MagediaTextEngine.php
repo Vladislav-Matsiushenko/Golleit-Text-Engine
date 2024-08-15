@@ -10,6 +10,8 @@ use Magedia\Service\CustomFieldsInstaller;
 
 class MagediaTextEngine extends Plugin
 {
+    public const MAX_LANGUAGE_NUMBER = 6;
+
     public function install(InstallContext $installContext): void
     {
         $this->getCustomFieldsInstaller()->install($installContext->getContext());

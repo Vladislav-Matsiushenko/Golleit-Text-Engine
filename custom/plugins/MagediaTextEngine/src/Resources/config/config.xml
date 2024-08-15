@@ -4,37 +4,43 @@
         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
 
     <card>
-        <title>Text Engine Configuration</title>
+        <title>First Language</title>
+
+        <component name="sw-entity-single-select">
+            <name>language1</name>
+            <entity>language</entity>
+            <label>Language</label>
+        </component>
 
         <input-field type="url">
-            <name>endpointUrl</name>
+            <name>endpointUrl1</name>
             <label>Endpoint URL</label>
         </input-field>
 
         <input-field type="text">
-            <name>apiToken</name>
+            <name>apiToken1</name>
             <label>API Token</label>
         </input-field>
 
         <input-field type="bool">
-            <name>refreshTexts</name>
+            <name>refreshTexts1</name>
             <label>Refresh Texts</label>
         </input-field>
 
         <component name="sw-entity-multi-id-select">
-            <name>productProperties</name>
+            <name>productProperties1</name>
             <entity>property_group</entity>
             <label>Product Properties</label>
         </component>
 
         <component name="sw-entity-multi-id-select">
-            <name>customProductProperties</name>
+            <name>customProductProperties1</name>
             <entity>custom_field</entity>
             <label>Custom Product Properties</label>
         </component>
 
         <input-field type="multi-select">
-            <name>otherProductProperties</name>
+            <name>otherProductProperties1</name>
             <label>Other Product Properties</label>
             <options>
                 <option>
@@ -53,9 +59,313 @@
         </input-field>
 
         <input-field type="textarea">
-            <name>dataMapping</name>
+            <name>dataMapping1</name>
             <label>Data mapping</label>
         </input-field>
     </card>
 
+    <card>
+        <title>Second Language</title>
+
+        <component name="sw-entity-single-select">
+            <name>language2</name>
+            <entity>language</entity>
+            <label>Language</label>
+        </component>
+
+        <input-field type="url">
+            <name>endpointUrl2</name>
+            <label>Endpoint URL</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>apiToken2</name>
+            <label>API Token</label>
+        </input-field>
+
+        <input-field type="bool">
+            <name>refreshTexts2</name>
+            <label>Refresh Texts</label>
+        </input-field>
+
+        <component name="sw-entity-multi-id-select">
+            <name>productProperties2</name>
+            <entity>property_group</entity>
+            <label>Product Properties</label>
+        </component>
+
+        <component name="sw-entity-multi-id-select">
+            <name>customProductProperties2</name>
+            <entity>custom_field</entity>
+            <label>Custom Product Properties</label>
+        </component>
+
+        <input-field type="multi-select">
+            <name>otherProductProperties2</name>
+            <label>Other Product Properties</label>
+            <options>
+                <option>
+                    <id>1</id>
+                    <name>Name</name>
+                </option>
+                <option>
+                    <id>2</id>
+                    <name>Description</name>
+                </option>
+                <option>
+                    <id>3</id>
+                    <name>Price</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="textarea">
+            <name>dataMapping2</name>
+            <label>Data mapping</label>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Third Language</title>
+
+        <component name="sw-entity-single-select">
+            <name>language3</name>
+            <entity>language</entity>
+            <label>Language</label>
+        </component>
+
+        <input-field type="url">
+            <name>endpointUrl3</name>
+            <label>Endpoint URL</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>apiToken3</name>
+            <label>API Token</label>
+        </input-field>
+
+        <input-field type="bool">
+            <name>refreshTexts3</name>
+            <label>Refresh Texts</label>
+        </input-field>
+
+        <component name="sw-entity-multi-id-select">
+            <name>productProperties3</name>
+            <entity>property_group</entity>
+            <label>Product Properties</label>
+        </component>
+
+        <component name="sw-entity-multi-id-select">
+            <name>customProductProperties3</name>
+            <entity>custom_field</entity>
+            <label>Custom Product Properties</label>
+        </component>
+
+        <input-field type="multi-select">
+            <name>otherProductProperties3</name>
+            <label>Other Product Properties</label>
+            <options>
+                <option>
+                    <id>1</id>
+                    <name>Name</name>
+                </option>
+                <option>
+                    <id>2</id>
+                    <name>Description</name>
+                </option>
+                <option>
+                    <id>3</id>
+                    <name>Price</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="textarea">
+            <name>dataMapping3</name>
+            <label>Data mapping</label>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Fourth Language</title>
+
+        <component name="sw-entity-single-select">
+            <name>language4</name>
+            <entity>language</entity>
+            <label>Language</label>
+        </component>
+
+        <input-field type="url">
+            <name>endpointUrl4</name>
+            <label>Endpoint URL</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>apiToken4</name>
+            <label>API Token</label>
+        </input-field>
+
+        <input-field type="bool">
+            <name>refreshTexts4</name>
+            <label>Refresh Texts</label>
+        </input-field>
+
+        <component name="sw-entity-multi-id-select">
+            <name>productProperties4</name>
+            <entity>property_group</entity>
+            <label>Product Properties</label>
+        </component>
+
+        <component name="sw-entity-multi-id-select">
+            <name>customProductProperties4</name>
+            <entity>custom_field</entity>
+            <label>Custom Product Properties</label>
+        </component>
+
+        <input-field type="multi-select">
+            <name>otherProductProperties4</name>
+            <label>Other Product Properties</label>
+            <options>
+                <option>
+                    <id>1</id>
+                    <name>Name</name>
+                </option>
+                <option>
+                    <id>2</id>
+                    <name>Description</name>
+                </option>
+                <option>
+                    <id>3</id>
+                    <name>Price</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="textarea">
+            <name>dataMapping4</name>
+            <label>Data mapping</label>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Fifth Language</title>
+
+        <component name="sw-entity-single-select">
+            <name>language5</name>
+            <entity>language</entity>
+            <label>Language</label>
+        </component>
+
+        <input-field type="url">
+            <name>endpointUrl5</name>
+            <label>Endpoint URL</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>apiToken5</name>
+            <label>API Token</label>
+        </input-field>
+
+        <input-field type="bool">
+            <name>refreshTexts5</name>
+            <label>Refresh Texts</label>
+        </input-field>
+
+        <component name="sw-entity-multi-id-select">
+            <name>productProperties5</name>
+            <entity>property_group</entity>
+            <label>Product Properties</label>
+        </component>
+
+        <component name="sw-entity-multi-id-select">
+            <name>customProductProperties5</name>
+            <entity>custom_field</entity>
+            <label>Custom Product Properties</label>
+        </component>
+
+        <input-field type="multi-select">
+            <name>otherProductProperties5</name>
+            <label>Other Product Properties</label>
+            <options>
+                <option>
+                    <id>1</id>
+                    <name>Name</name>
+                </option>
+                <option>
+                    <id>2</id>
+                    <name>Description</name>
+                </option>
+                <option>
+                    <id>3</id>
+                    <name>Price</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="textarea">
+            <name>dataMapping5</name>
+            <label>Data mapping</label>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Sixth Language</title>
+
+        <component name="sw-entity-single-select">
+            <name>language6</name>
+            <entity>language</entity>
+            <label>Language</label>
+        </component>
+
+        <input-field type="url">
+            <name>endpointUrl6</name>
+            <label>Endpoint URL</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>apiToken6</name>
+            <label>API Token</label>
+        </input-field>
+
+        <input-field type="bool">
+            <name>refreshTexts6</name>
+            <label>Refresh Texts</label>
+        </input-field>
+
+        <component name="sw-entity-multi-id-select">
+            <name>productProperties6</name>
+            <entity>property_group</entity>
+            <label>Product Properties</label>
+        </component>
+
+        <component name="sw-entity-multi-id-select">
+            <name>customProductProperties6</name>
+            <entity>custom_field</entity>
+            <label>Custom Product Properties</label>
+        </component>
+
+        <input-field type="multi-select">
+            <name>otherProductProperties6</name>
+            <label>Other Product Properties</label>
+            <options>
+                <option>
+                    <id>1</id>
+                    <name>Name</name>
+                </option>
+                <option>
+                    <id>2</id>
+                    <name>Description</name>
+                </option>
+                <option>
+                    <id>3</id>
+                    <name>Price</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="textarea">
+            <name>dataMapping6</name>
+            <label>Data mapping</label>
+        </input-field>
+    </card>
 </config>

@@ -2,6 +2,7 @@
 
 namespace Magedia\MessageQueue\Handler;
 
+use Magedia\MagediaTextEngine;
 use Magedia\MessageQueue\Message\ProductDescriptionUpdateMessage;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Content\Product\ProductEntity;
@@ -29,20 +30,35 @@ class ProductDescriptionUpdateHandler
     public function __invoke(ProductDescriptionUpdateMessage $message)
     {
         try {
-            $endpointUrl = $this->systemConfigService->get('MagediaTextEngine.config.endpointUrl');
-            $apiToken = $this->systemConfigService->get('MagediaTextEngine.config.apiToken');
-            $dataMapping = $this->systemConfigService->get('MagediaTextEngine.config.dataMapping');
-            if (!$endpointUrl || !$apiToken || !$dataMapping) {
-                return;
+            $context = $message->getContext();
+            $currentLanguageId = $context->getLanguageId();
+            $configId = 0;
+            for ($i = 1; $i <= MagediaTextEngine::MAX_LANGUAGE_NUMBER; $i++) {
+                $languageId = $this->systemConfigService->get('MagediaTextEngine.config.language' . $i);
+                if ($languageId === $currentLanguageId) {
+                    $configId = $i;
+                    break;
+                }
             }
 
+            if ($configId === 0) {
+                throw new \RuntimeException('Product description update failed');
+            }
+
+            $endpointUrl = $this->systemConfigService->get('MagediaTextEngine.config.endpointUrl' . $configId);
+            $apiToken = $this->systemConfigService->get('MagediaTextEngine.config.apiToken' . $configId);
+            $dataMapping = $this->systemConfigService->get('MagediaTextEngine.config.dataMapping' . $configId);
+            if (!$endpointUrl || !$apiToken || !$dataMapping) {
+                throw new \RuntimeException('Product description update failed');
+            }
+
+            $refreshTexts = $this->systemConfigService->get('MagediaTextEngine.config.refreshTexts' . $configId) ?? false;
             $productId = $message->getProductId();
-            $context = $message->getContext();
 
             $response = $this->client->request(
                 'POST', $endpointUrl, [
                     'auth_bearer' => $apiToken,
-                    'body' => $this->getBody($productId, $dataMapping, $context)
+                    'body' => $this->getBody($productId, $context, $dataMapping, $refreshTexts)
                 ]
             );
 
@@ -69,7 +85,7 @@ class ProductDescriptionUpdateHandler
         }
     }
 
-    private function getBody($productId, $dataMapping, $context): string
+    private function getBody($productId, $context, $dataMapping, $refreshTexts): string
     {
         /** @var ProductEntity $product */
         $product = $this->productRepository->search(new Criteria([$productId]), $context)->first();
@@ -80,7 +96,7 @@ class ProductDescriptionUpdateHandler
 
             /** @var PropertyGroupEntity $propertyGroup */
             $propertyGroup = $this->propertyGroupRepository->search(new Criteria([$propertyGroupOption->getGroupId()]), $context)->first();
-            $productPropertyNameValues[$propertyGroup->getName()][] = $propertyGroupOption->getName();
+            $productPropertyNameValues[$propertyGroup->getName()][] = $propertyGroupOption->getTranslated()['name'];
         }
 
         if ($product->getCustomFields()) {
@@ -89,8 +105,11 @@ class ProductDescriptionUpdateHandler
             }
         }
 
-        $productPropertyNameValues['Name'][] = $product->getName();
-        $productPropertyNameValues['Description'][] = $product->getDescription();
+        $productPropertyNameValues['Name'][] = $product->getTranslated()['name'];
+        $productPropertyNameValues['Description'][] = $product->getTranslated()['description'];
+
+        $currencies = $product->getPrice()->getElements();
+        $productPropertyNameValues['Price'][] = reset($currencies)->getGross();
 
         preg_match_all("/\"\{\{\s*([a-z_]+)\s*}}\"/i", $dataMapping, $matches);
         for ($i = 0; $i < count($matches[0]); $i++) {
@@ -114,7 +133,7 @@ class ProductDescriptionUpdateHandler
         return '{'
             . $dataMapping
             . ', "refresh": '
-            . json_encode($this->systemConfigService->get('MagediaTextEngine.config.refreshTexts'))
+            . json_encode($refreshTexts)
             . ', "output_format": "PLAIN_TEXT" }';
     }
 }
