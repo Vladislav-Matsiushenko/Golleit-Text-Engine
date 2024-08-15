@@ -8,19 +8,14 @@
         "shopware/core": "~6.6.0"
     },
     "extra": {
-        "shopware-plugin-class": "Magedia\\MagediaTextEngine",
+        "shopware-plugin-class": "Magedia\\TextEngine\\MagediaTextEngine",
         "label": {
             "en-GB": "Text Engine Integration"
         }
     },
     "autoload": {
         "psr-4": {
-            "Magedia\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Magedia\\Tests\\": "tests/"
+            "Magedia\\TextEngine\\": "src/"
         }
     },
     "config": {

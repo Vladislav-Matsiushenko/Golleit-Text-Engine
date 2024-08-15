@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Magedia\MessageQueue\Handler;
+namespace Magedia\TextEngine\MessageQueue\Handler;
 
-use Magedia\MagediaTextEngine;
-use Magedia\MessageQueue\Message\ProductDescriptionUpdateMessage;
+use Magedia\TextEngine\MagediaTextEngine;
+use Magedia\TextEngine\MessageQueue\Message\ProductDescriptionUpdateMessage;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Content\Product\ProductEntity;
 use Shopware\Core\Content\Property\Aggregate\PropertyGroupOption\PropertyGroupOptionEntity;
@@ -129,6 +129,7 @@ class ProductDescriptionUpdateHandler
                 );
             }
         }
+
 
         return '{'
             . $dataMapping

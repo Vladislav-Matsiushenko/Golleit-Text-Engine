@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Magedia\Subscriber;
+namespace Magedia\TextEngine\Subscriber;
 
-use Magedia\MessageQueue\Message\ProductDescriptionUpdateMessage;
+use Magedia\TextEngine\MessageQueue\Message\ProductDescriptionUpdateMessage;
 use Shopware\Core\Content\Product\ProductEntity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Event\EntityWrittenEvent;

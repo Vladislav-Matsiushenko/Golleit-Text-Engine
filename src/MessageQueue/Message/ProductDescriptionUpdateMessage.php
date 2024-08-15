@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Magedia\MessageQueue\Message;
+namespace Magedia\TextEngine\MessageQueue\Message;
 
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\MessageQueue\AsyncMessageInterface;
