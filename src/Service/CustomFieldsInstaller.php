@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Magedia\Service;
+namespace Magedia\TextEngine\Service;
 
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
